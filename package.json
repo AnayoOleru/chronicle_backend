@@ -2,14 +2,31 @@
   "name": "chronicle_backend",
   "version": "0.0.1",
   "description": "A diary app",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d dist",
+    "dev": "nodemon --exec babel-node ./src/index.js"
   },
   "keywords": [
     "diary",
     "backend"
   ],
   "author": "Anayo Oleru",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@babel/cli": "^7.27.0",
+    "@babel/core": "^7.26.10",
+    "@babel/node": "^7.26.0",
+    "@babel/plugin-transform-runtime": "^7.26.10",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.26.9",
+    "@babel/register": "^7.25.9",
+    "babel-node": "^0.0.1-security",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.9"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0"
+  }
 }
