@@ -1,4 +1,5 @@
 import express from 'express';
+import { createDiary } from './controllers/diaries';
 
 const app = express();
 
@@ -13,6 +14,8 @@ app.get('/', (req, res) => {
 //         'message': "This route does not exist!"
 //     });
 // });
+
+app.post('/api/v1/diaries', createDiary);
 
 app.listen(3000, () => {
     console.log("Project is running at http://localhost:3000");

@@ -7,7 +7,7 @@ class Diary {
 
     create(data) {
         const newDiary = {
-            id: uuidv4.v4(),
+            id: uuidv4(),
             success: data.success || '',
             failure: data.failure || '',
             plan: data.plan || '',
