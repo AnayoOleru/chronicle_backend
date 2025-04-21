@@ -39,3 +39,48 @@ export const getDiary = (req, res) => {
 };
 
 
+export const updateDiary = (req, res) => {
+    try {
+        const { id } = req.params;
+        // find one diary
+        const diary = DiaryModel.findOne(id);
+
+        if (!diary) {
+            return res.status(404).send({ "message": "Diary does not exist" });
+        };
+
+        const updateDiary = DiaryModel.update(id, req.body);
+
+        return res.status(200).send(updateDiary);
+    } catch (error) {
+        return res.status(500).send('Error: server error' + error)
+    }
+};
+
+export const deleteDiary = (req, res) => {
+    try {
+        const { id } = req.params;
+        // find one diary
+        const diary = DiaryModel.findOne(id);
+        const diaries = DiaryModel.findAll();
+
+        if (!diary) {
+            return res.status(404).send({ "message": "Diary with id does not exist" });
+        };
+
+        DiaryModel.delete(id);
+
+        return res.status(200).json({
+            message: "Diary deleted successfully",
+            diaries
+        });
+    } catch (error) {
+        return res.status(500).send('Error: server error' + error)
+    }
+};
+
+
+
+
+
+
